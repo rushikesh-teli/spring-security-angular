@@ -26,11 +26,4 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome Demo!');
   }));
-  it('should fetch data from backend', async(() => {
-    const http = TestBed.get(HttpTestingController);
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    http.expectOne('resource').flush({id: 'XYZ', content: 'Hello'});
-    expect(app.data.content).toContain('Hello');
-  }));
 });
